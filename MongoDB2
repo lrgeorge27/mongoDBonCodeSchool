@@ -1,0 +1,16 @@
+MongoDB 2.1 Removing and Modifying Documents
+
+Removing documents: 
+> db.potions.remove({"name": "Love"})  //query matches single document
+WriteResult({ "nRemoved": 1 })  //1 document removed
+
+Delete Multiple Docs:
+> db.potions.remove({"vendor": "Kettlecooked"}) //query matches multiple docs 
+WriteResult ({ "nRemoved": 2}) //2 removed
+Passing {} as the query would delete all documents in the collection.
+
+Update Documents:
+> db.potions.update(
+    {"name": "Love"}, //query parameter
+    {"$set": {"price": 3.99}) //update parameter, update operators always begin with $ 
+Update only applied to matches the first 
